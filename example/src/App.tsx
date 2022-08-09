@@ -1,18 +1,24 @@
 import * as React from 'react';
-
-import { StyleSheet, View, Text } from 'react-native';
-import { multiply } from 'react-native-focused-scroll';
+import { useState } from 'react';
+import { StyleSheet, View } from 'react-native';
+import FocusedScrollView from 'react-native-focused-scroll';
 
 export default function App() {
-  const [result, setResult] = React.useState<number | undefined>();
-
-  React.useEffect(() => {
-    multiply(3, 7).then(setResult);
-  }, []);
+  const [ data, setData ] = useState([
+    { text: "text1" },
+    { text: "text2" },
+    { text: "text3" },
+    { text: "text4" },
+    { text: "text5" },
+    { text: "text6" }
+  ]);
 
   return (
     <View style={styles.container}>
-      <Text>Result: {result}</Text>
+      <FocusedScrollView
+        data={data}
+        onItemPress={() => console.log('pressed')}
+      />
     </View>
   );
 }
