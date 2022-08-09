@@ -88,12 +88,12 @@ export default class FocusedScrollView extends React.Component<Props, States> {
             waitForInteraction: true,
             viewAreaCoveragePercentThreshold: 120
           }}
-          getItemLayout={(data, index) => (
+          getItemLayout={(_data, index) => (
             { length: 120, offset: 120 * index, index }
           )}
           onViewableItemsChanged={this.onViewableItemsChanged}
           data={data}
-          keyExtractor={(item, index) => index.toString()}
+          keyExtractor={(_item, index) => index.toString()}
           renderItem={({ item, index }) => (
               <>
               <TouchableOpacity 
